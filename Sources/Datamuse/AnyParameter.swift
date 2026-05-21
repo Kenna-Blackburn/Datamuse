@@ -88,7 +88,7 @@ extension AnyParameter {
     /// For example, the query `sp???-ei` finds 5-letter words that start with "sp" but do not contain an "e"or an "i", such as "spoon" and "spray".
     ///
     /// * A plus sign (`+`) followed by some letters at the end of a pattern means "restrict to these letters".
-    /// For example, the query `*+ban` finds "banana".
+    /// For example, the query `*+ban` finds "banana". 
     public static func spelledLike(_ string: String) -> Self {
         return .init("sp", value: string)
     }
@@ -96,14 +96,14 @@ extension AnyParameter {
     /// Require that the results are nouns modified by the given adjective.
     ///
     /// > Example: `gradual -> increase`
-    public static func modified(by adjective: String) -> Self {
+    public static func described(by adjective: String) -> Self {
         return .init("rel_jja", value: adjective)
     }
     
     /// Require that the results are adjectives modified by the given noun.
     ///
     /// > Example: `beach -> sandy`
-    public static func modifies(_ noun: String) -> Self {
+    public static func describing(_ noun: String) -> Self {
         return .init("rel_jjb", value: noun)
     }
     
@@ -117,7 +117,7 @@ extension AnyParameter {
     /// Require that the results are statistically associated with the given word in the same piece of text.
     ///
     /// > Example: `cow -> milking`
-    public static func trigger(_ word: String) -> Self {
+    public static func triggered(by word: String) -> Self {
         return .init("rel_trg", value: word)
     }
     

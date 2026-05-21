@@ -21,5 +21,9 @@ let package = Package(
         .target(
             name: "Datamuse",
         ),
+        .executableTarget(
+            name: "DatamuseClient",
+            dependencies: ["Datamuse"],
+        ),
     ],
 )
